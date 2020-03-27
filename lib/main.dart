@@ -1,3 +1,4 @@
+import 'package:btisonargaon/bahaulhuqsection/anmbh.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -10,7 +11,25 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      home: Text("Hello There"), //MyHomePage(title: 'Flutter Demo Home Page'),
+      home: HomeView(), //MyHomePage(title: 'Flutter Demo Home Page'),
+    );
+  }
+}
+
+class HomeView extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Container(
+        child: SingleChildScrollView(
+          child: Column(
+            children: <Widget>[
+              //chairman sir's section
+              Anmbh()
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
