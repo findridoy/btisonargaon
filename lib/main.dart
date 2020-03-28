@@ -1,4 +1,6 @@
 import 'package:btisonargaon/bahaulhuqsection/anmbh.dart';
+import 'package:btisonargaon/header/header.dart';
+import 'package:btisonargaon/homeview/welcomeimagecarousel.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -24,8 +26,10 @@ class HomeView extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: <Widget>[
+              Header(),
+              ImageCarousel(),
               //chairman sir's section
-              Anmbh()
+              Anmbh(),
             ],
           ),
         ),
