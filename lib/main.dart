@@ -1,4 +1,3 @@
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter/material.dart';
 import 'pages/home_page.dart';
 
@@ -12,12 +11,7 @@ class BTIweb extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'বাহাউল হক টেকনিক্যাল ইন্সটিটিউট - Bahaul Huq Technical Institute',
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text("Hey"),
-        ),
-        body: HomePage(),
-      ),
+      home: HomePage(),
     );
   }
 }
