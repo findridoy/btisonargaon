@@ -1,65 +1,65 @@
+import 'package:btisonargaon/widgets/my_app_bar/my_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:getflutter/components/carousel/gf_carousel.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:responsive_builder/responsive_builder.dart';
 
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        leading: null,
-        title: Center(
-          child: FittedBox(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Image.network("https://via.placeholder.com/60"),
-                Text("bahaul kdjfei kdsjf lkjdf")
-              ],
-            ),
-          ),
-        ),
-        actions: <Widget>[
-          MenuButton(),
-        ],
-        automaticallyImplyLeading: false,
-      ),
-      endDrawer: Container(
-        width: 50,
-        color: Colors.amber,
-        child: ListView(
-          children: <Widget>[
-            Text("Hi"),
-            Text("Hi"),
-            Text("Hi"),
-            Text("Hi"),
-            Text("Hi"),
-            Text("Hi"),
-            Text("Hi"),
-          ],
-        ),
-      ),
-      body: Container(
-        child: ListView(
-          children: <Widget>[
-            WelcomeCarousel(),
-            IlloraLaylaSumon(),
-            LaylaCard(),
-            Text("Hi"),
-            Text("Hi"),
-            Text("Hi"),
-            Text("Hi"),
-            Text("Hi"),
-            Text("Hi"),
-            Text("Hi"),
-            Text("Hi"),
-            Text("Hi"),
-          ],
-        ),
+    return ResponsiveBuilder(
+      builder: (context, sizingInformation) => Scaffold(
+        appBar: sizingInformation.deviceScreenType == DeviceScreenType.Mobile ||
+                sizingInformation.deviceScreenType == DeviceScreenType.Tablet
+            ? MobileAppBar()
+            : null,
       ),
     );
   }
 }
+
+// class HomePage00000 extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar:
+//       endDrawer: Container(
+//         width: 50,
+//         color: Colors.amber,
+//         child: ListView(
+//           children: <Widget>[
+//             Text("Hi"),
+//             Text("Hi"),
+//             Text("Hi"),
+//             Text("Hi"),
+//             Text("Hi"),
+//             Text("Hi"),
+//             Text("Hi"),
+//           ],
+//         ),
+//       ),
+//       body: Container(
+//         child: ListView(
+//           children: <Widget>[
+//             WelcomeCarousel(),
+//             IlloraLaylaSumon(),
+//             LaylaCard(),
+//             KeepinTouch(),
+//             Text("Hi"),
+//             Text("Hi"),
+//             Text("Hi"),
+//             Text("Hi"),
+//             Text("Hi"),
+//             Text("Hi"),
+//             Text("Hi"),
+//             Text("Hi"),
+//             Text("Hi"),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }
 
 class MenuButton extends StatelessWidget {
   @override
@@ -171,6 +171,72 @@ class LaylaCard extends StatelessWidget {
                 ),
               ),
             ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class KeepinTouch extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      alignment: Alignment.center,
+      constraints: BoxConstraints(
+        maxWidth: 400,
+      ),
+      child: Column(
+        children: <Widget>[
+          RichText(
+            text:
+                TextSpan(style: DefaultTextStyle.of(context).style, children: [
+              TextSpan(text: "Keep in"),
+              TextSpan(
+                text: "Touch",
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  backgroundColor: Colors.blueAccent,
+                ),
+              ),
+            ]),
+          ),
+          Column(
+            children: <Widget>[
+              Container(
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Padding(
+                      padding: EdgeInsets.all(8),
+                      child: Text(
+                        "Address: ",
+                        style: TextStyle(
+                          fontSize: 20,
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.fromLTRB(4, 8, 4, 8),
+                      child: Icon(
+                        Icons.place,
+                        size: 25,
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.all(8),
+                      child: Text(
+                        "Goaldi, Sonargaon \nNarayongonj",
+                        style: TextStyle(
+                          fontSize: 15,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              )
+            ],
           ),
         ],
       ),
